@@ -1,0 +1,36 @@
+.header {
+  height: 230px;
+  .container {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+  .header-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .logo-text {
+        font-size: 30px;
+    }
+  }
+}
+
+.navigation {
+  .list-navigation {
+    display: flex;
+    li + li {
+      margin-left: 30px;
+    }
+    a:hover {
+      color: #cbc8c8;
+    }
+  }
+}
+
+.bg-header {
+  background-size: cover;
+  background-color: #8c8c8c;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  url('../images/header/header-bg-desktop.jpg');
+}
+
+

@@ -1,26 +1,26 @@
 {
-  "name": "yes",
+  "name": "image_search_js_hw_11",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/maximostrovskiy86/movie-app-frontend",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /movie-app-frontend/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maximostrovskiy86/movie-app-frontend.git"
-  },
-  "author": "Maxim Ostrovskiy <maxim.ostrovskiy86@gmail.com>",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/maximostrovskiy86/movie-app-frontend/issues"
-  },
-  "homepage": "https://github.com/maximostrovskiy86/movie-app-frontend#readme",
-  "dependencies": {
-    "modern-normalize": "^2.0.0"
-  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^2.0.1",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "3.3.2"
+  },
+  "dependencies": {
+    "modern-normalize": "^2.0.0"
   }
 }
