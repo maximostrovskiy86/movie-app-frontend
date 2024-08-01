@@ -1,0 +1,1 @@
+export const mediaLInk = document.querySelector('.js-main');
