@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 40px;
     .logo-text {
         font-size: 30px;
     }
@@ -32,5 +33,32 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
   url('../images/header/header-bg-desktop.jpg');
 }
+
+#search-form {
+  display: flex;
+  justify-content: center;
+  #search-input {
+    min-width: 330px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .button-search {
+    width: 150px;
+    height: 35px;
+    padding: 5px 10px;
+    background: #002266;
+    text-align: center;
+    cursor: pointer;
+    &:active {
+      background-color: darken(#002266, 10%);
+    }
+  }
+}
+
 
 
