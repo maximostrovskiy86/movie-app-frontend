@@ -3,8 +3,14 @@
 @import './base/normalize';
 @import './base/reset';
 
+@import "./utils/variable";
+@import "./utils/placeholders";
+@import "./utils/mixin";
+
 @import './components/body';
 @import './components/container';
 @import "./components/card-movie";
+@import './components/modal';
+//@import './components/modalSecondVariant';
 
 @import './layout/header';

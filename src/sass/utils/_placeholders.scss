@@ -1,0 +1,25 @@
+%modal {
+  // Good rules: Position -> Geometric -> Text -> stylistic(formalization)
+  padding: 15px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 400px;
+
+  background-color: $text-white-color;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 1px 0 1px rgba(0, 0, 0, 0.14),
+  3px 0 1px rgba(0, 0, 0, 0.12);
+  color: #0c1618;
+
+  border-radius: 4px;
+}
+
+%backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+

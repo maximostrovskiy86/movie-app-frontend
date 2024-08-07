@@ -1,0 +1,22 @@
+body.show-modal .backdrop {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: initial;
+}
+
+body.show-modal .modal {
+  transform: scale(1);
+}
+
+.backdrop {
+  @include centeredFlex(flex, center, center);
+  @extend %backdrop;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.modal {
+  @extend %modal;
+}
