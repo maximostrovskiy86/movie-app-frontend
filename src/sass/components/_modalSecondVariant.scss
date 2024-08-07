@@ -1,0 +1,22 @@
+.backdrop {
+  @extend %backdrop;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+.backdrop.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.modal {
+  // Good rules: Position -> Geometric -> Text -> stylistic(formalization)
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @extend %modal;
+}
