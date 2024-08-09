@@ -1,4 +1,4 @@
-import {formRefs} from "../const/refs";
+import {formRef} from "../const/refs";
 import {fetchMoviesSearch} from "../API/movie-api";
 import {createMovieMarkup} from "./cardMovie";
 
@@ -16,6 +16,6 @@ async function onSearchMovies(event) {
 
 }
 
-formRefs.addEventListener('submit', onSearchMovies);
+formRef.addEventListener('submit', onSearchMovies);
 
 
