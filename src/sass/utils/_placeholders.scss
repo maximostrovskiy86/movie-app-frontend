@@ -1,7 +1,7 @@
 %modal {
   // Good rules: Position -> Geometric -> Text -> stylistic(formalization)
-  padding: 50px 30px;
-  width: 100%;
+  //width: 100%;
+  position: relative;
   max-width: 882px;
 
   background-color: $text-white-color;
@@ -9,6 +9,7 @@
   3px 0 1px rgba(0, 0, 0, 0.12);
   color: #0c1618;
 
+  border: 1px solid #000000;
   border-radius: 4px;
 }
 

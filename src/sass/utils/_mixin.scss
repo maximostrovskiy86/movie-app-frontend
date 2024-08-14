@@ -1,5 +1,5 @@
-@mixin centeredFlex($type, $x, $y) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin centeredFlex($type, $x, $y, ) {
+  display: $type;
+  justify-content: $x;
+  align-items: $y;
 }

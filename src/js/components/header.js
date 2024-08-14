@@ -8,7 +8,7 @@ async function onSearchMovies(event) {
 
     const form = event.target;
     const keyWord = form.elements.searchInput.value;
-
+    if (!keyWord) return;
     console.log('target', keyWord);
     const movieSearch = await fetchMoviesSearch(keyWord);
     console.log('movieSearch', movieSearch)

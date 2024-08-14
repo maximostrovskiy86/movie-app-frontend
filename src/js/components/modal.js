@@ -1,11 +1,10 @@
-import {mediaRef} from "../const/refs";
+import {mediaRef, closeModal, backdrop} from "../const/refs";
 import {handlerMovieInformation} from "./movieInfoModalWindow";
 
-const refs = {
-    // openModal: document.querySelector('[data-open-modal]'),
-    closeModal: document.querySelector('[data-close-modal]'),
-    backdrop: document.querySelector('[data-backdrop]'),
-}
+// const refs = {
+//     closeModal: document.querySelector('[data-action="close-modal"]'),
+//     backdrop: document.querySelector('[data-backdrop]'),
+// }
 
 
 const onOpenModal = () => {
@@ -33,6 +32,8 @@ const onEscKeyPress = (event) => {
 }
 
 mediaRef.addEventListener('click', onOpenModal);
-refs.closeModal.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdrop);
+closeModal.addEventListener('click', onCloseModal);
+backdrop.addEventListener('click', onBackdrop);
+// refs.closeModal.addEventListener('click', onCloseModal);
+// refs.backdrop.addEventListener('click', onBackdrop);
 

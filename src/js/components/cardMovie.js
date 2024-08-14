@@ -12,6 +12,6 @@ export const createMovieMarkup = (movies) => {
             </a>
         </li>`
     }).join('');
-    // console.log('moviesCollection', moviesCollection)
+
     return mediaRef.innerHTML = moviesCollection;
 }
