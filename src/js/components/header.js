@@ -1,4 +1,4 @@
-import {formRefs} from "../const/refs";
+import {formRef} from "../const/refs";
 import {fetchMoviesSearch} from "../API/movie-api";
 import {createMovieMarkup} from "./cardMovie";
 
@@ -8,7 +8,7 @@ async function onSearchMovies(event) {
 
     const form = event.target;
     const keyWord = form.elements.searchInput.value;
-
+    if (!keyWord) return;
     console.log('target', keyWord);
     const movieSearch = await fetchMoviesSearch(keyWord);
     console.log('movieSearch', movieSearch)
@@ -16,6 +16,6 @@ async function onSearchMovies(event) {
 
 }
 
-formRefs.addEventListener('submit', onSearchMovies);
+formRef.addEventListener('submit', onSearchMovies);
 
 

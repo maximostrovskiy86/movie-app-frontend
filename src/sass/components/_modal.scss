@@ -9,14 +9,132 @@ body.show-modal .modal {
 }
 
 .backdrop {
-  @include centeredFlex(flex, center, center);
+  //@include centeredFlex(flex, center, center);
   @extend %backdrop;
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
   transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out;
+  overflow-y: scroll;
+
+  @media screen and (min-width: 768px) {
+    //@include centeredFlex(flex, center, center);
+  }
 }
 
 .modal {
   @extend %modal;
+  margin: 25px;
+  padding: 45px 15px;
+
+
+  //.modal-header {
+  //  display: flex;
+  //  justify-content: flex-end;
+  //}
+  .button-base.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    padding: 0;
+
+    background-color: transparent;
+
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: none;
+      transform: scale(1.15);
+    }
+
+    &:active {
+      fill: #8c8c8c;
+    }
+  }
 }
+
+.modal-content {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding: 50px 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 100%;
+  }
+}
+
+.movie-image {
+  //@include centeredFlex(flex, center, center);
+  margin-bottom: 15px;
+
+  .original-title h3 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .modal-picture {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+
+    @media screen and (min-width: 768px) {
+      width: 264px;
+      height: 374px;
+    }
+    @media screen and (min-width: 1024px) {
+      width: 396px;
+      height: 478px;
+    }
+  }
+}
+
+.movie-info {
+  table {
+    width: 100%;
+    margin-bottom: 25px;
+
+    tr {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      td {
+        &:first-child {
+          color: #8c8c8c;
+        }
+      }
+
+      &:nth-child(3) td:last-child {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .description {
+    margin-bottom: 25px;
+
+    .description-title {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.box-button {
+  display: flex;
+  justify-content: center;
+  .button-modal-watch, .button-modal-queue {
+    padding: 15px;
+    text-transform: uppercase;
+  }
+  .button-modal-watch {
+    margin-right: 15px;
+    background-color: $accent-color;
+    color: $text-white-color;
+  }
+}
+
+

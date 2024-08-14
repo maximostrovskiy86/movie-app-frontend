@@ -1,12 +1,17 @@
-const refs = {
-    openModal: document.querySelector('[data-open-modal]'),
-    closeModal: document.querySelector('[data-close-modal]'),
-    backdrop: document.querySelector('[data-backdrop]'),
-}
+import {mediaRef, closeModal, backdrop} from "../const/refs";
+import {handlerMovieInformation} from "./movieInfoModalWindow";
+
+// const refs = {
+//     closeModal: document.querySelector('[data-action="close-modal"]'),
+//     backdrop: document.querySelector('[data-backdrop]'),
+// }
+
 
 const onOpenModal = () => {
     window.addEventListener('keydown', onEscKeyPress);
     document.body.classList.add('show-modal');
+
+    handlerMovieInformation();
 }
 
 const onCloseModal = () => {
@@ -26,7 +31,9 @@ const onEscKeyPress = (event) => {
     }
 }
 
-refs.openModal.addEventListener('click', onOpenModal);
-refs.closeModal.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdrop);
+mediaRef.addEventListener('click', onOpenModal);
+closeModal.addEventListener('click', onCloseModal);
+backdrop.addEventListener('click', onBackdrop);
+// refs.closeModal.addEventListener('click', onCloseModal);
+// refs.backdrop.addEventListener('click', onBackdrop);
 

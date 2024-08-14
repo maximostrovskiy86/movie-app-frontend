@@ -1,16 +1,17 @@
-import {mediaLInk} from "../const/refs";
+import {mediaRef} from "../const/refs";
+import {IMAGE_BASE_URL} from "../const/base";
 
-const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const createMovieMarkup = (movies) => {
     const moviesCollection = movies.results.map((movie) => {
-        return `<li class="movie-item">
+        // console.log('movie', movie)
+        return `<li class="movie-item js-movie-item" id=${movie.id}>
             <a class="movie-link" href="#">
-                <img class="movie-image" src='${IMAGE_URL}${movie.poster_path}' alt="${movie.original_title}" />
+                <img class="movie-image" src='${IMAGE_BASE_URL}${movie.poster_path}' alt="${movie.original_title}" />
                 <span class="movie-title">${movie.title}</span>
             </a>
         </li>`
     }).join('');
 
-    return mediaLInk.innerHTML = moviesCollection;
+    return mediaRef.innerHTML = moviesCollection;
 }
