@@ -1,4 +1,5 @@
 body.show-modal .backdrop {
+  @include centeredFlex(flex, center, center);
   visibility: visible;
   opacity: 1;
   pointer-events: initial;
@@ -27,11 +28,6 @@ body.show-modal .modal {
   margin: 25px;
   padding: 45px 15px;
 
-
-  //.modal-header {
-  //  display: flex;
-  //  justify-content: flex-end;
-  //}
   .button-base.modal-close-btn {
     position: absolute;
     top: 15px;
@@ -53,12 +49,24 @@ body.show-modal .modal {
       fill: #8c8c8c;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    min-width: 618px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 882px;
+  }
 }
 
 .modal-content {
   @media screen and (min-width: 768px) {
     display: flex;
     padding: 50px 30px;
+    > * {
+      flex-basis: 50%;
+    }
+    //.de
   }
 
   @media screen and (max-width: 767px) {
@@ -70,11 +78,14 @@ body.show-modal .modal {
   //@include centeredFlex(flex, center, center);
   margin-bottom: 15px;
 
-  .original-title h3 {
+  .modal-title-small-device {
     font-size: 20px;
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
   }
 
   .modal-picture {
@@ -94,6 +105,10 @@ body.show-modal .modal {
 }
 
 .movie-info {
+  .modal-title-large-device {
+    display: none;
+  }
+
   table {
     width: 100%;
     margin-bottom: 25px;
@@ -121,15 +136,28 @@ body.show-modal .modal {
       text-transform: uppercase;
     }
   }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 25px;
+    .modal-title-large-device {
+      display: block;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .box-button {
   display: flex;
   justify-content: center;
+
   .button-modal-watch, .button-modal-queue {
     padding: 15px;
     text-transform: uppercase;
   }
+
   .button-modal-watch {
     margin-right: 15px;
     background-color: $accent-color;

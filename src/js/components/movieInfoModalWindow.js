@@ -15,9 +15,10 @@ const appendMovieModalMarkup = (filmInfo) => {
     const movieInfo = `<div class="modal-content">
     <figure class="movie-image">
         <img src=${IMAGE_BASE_URL}${poster_path} class="modal-picture"  alt=${original_title}/>
-        <figcaption class="original-title"><h3>${original_title}</h3></figcaption>
+        <figcaption class="original-title"><h3 class="modal-title-small-device">${original_title}</h3></figcaption>
     </figure>
     <div class="movie-info">
+    <h3 class="modal-title-large-device">${original_title}</h3>
         <table>
             <tr>
                 <td>Vote / Votes</td>
