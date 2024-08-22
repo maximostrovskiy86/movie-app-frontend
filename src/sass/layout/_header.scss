@@ -1,63 +1,109 @@
 .header {
-  height: 230px;
-  .container {
-    padding-top: 46px;
-    padding-bottom: 46px;
-  }
-  .header-menu {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 40px;
-    .logo-text {
-        font-size: 30px;
+    height: 230px;
+
+    .container {
+	padding-top: 46px;
+	padding-bottom: 46px;
     }
-  }
+
+    .header-menu {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 40px;
+
+	.logo-text {
+	    font-size: 30px;
+	}
+    }
 }
 
 .navigation {
-  .list-navigation {
-    display: flex;
-    li + li {
-      margin-left: 30px;
+    .list-navigation {
+	display: flex;
+
+	li + li {
+	    margin-left: 30px;
+	}
+
+	a:hover {
+	    color: #cbc8c8;
+	}
     }
-    a:hover {
-      color: #cbc8c8;
-    }
-  }
 }
 
 .bg-header {
-  background-size: cover;
-  background-color: #8c8c8c;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-  url('../images/header/header-bg-desktop.jpg');
+    background-size: cover;
+    background-color: #8c8c8c;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header/header-bg-desktop.jpg');
 }
 
 #search-form {
-  display: flex;
-  justify-content: center;
-  #search-input {
-    min-width: 330px;
-    height: 40px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid #ffffff;
-    background-color: transparent;
-    color: #ffffff;
-  }
+    position: relative;
+    display: flex;
+    justify-content: center;
 
-  .button-search {
-    width: 150px;
-    height: 35px;
-    padding: 5px 10px;
-    background: #002266;
-    text-align: center;
-    cursor: pointer;
-    &:active {
-      background-color: darken(#002266, 10%);
+    #search-input {
+	position: inherit;
+	min-width: 330px;
+	height: 40px;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #ffffff;
+	background-color: transparent;
+	color: #ffffff;
     }
-  }
+
+    .form-text-error {
+	position: absolute;
+	top: 100%;
+	font-size: 14px;
+	color: #991100;
+    }
+}
+
+.search-container {
+    position: relative;
+
+    .search-input {
+	width: 100%;
+    }
+
+    .form-icon-container {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 24px;
+	height: 24px;
+
+	transform: translateY(-50%);
+
+	.icon-search {
+	    position: absolute;
+	    right: 0;
+	    width: 100%;
+	    cursor: pointer;
+	    stroke: #fff;
+	    stroke-opacity: 1;
+
+	    &:hover {
+		width: 26px;
+		height: 26px;
+	    }
+
+	    &:active {
+		stroke-opacity: 0.7;
+	    }
+	}
+
+	.button-search {
+	    max-width: 100%;
+	    background-color: transparent;
+	    border: none;
+	    outline: none;
+	}
+    }
 }
 
 
