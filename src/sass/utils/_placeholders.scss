@@ -2,7 +2,7 @@
   // Good rules: Position -> Geometric -> Text -> stylistic(formalization)
   //width: 100%;
   position: relative;
-  max-width: 882px;
+  min-width: 280px;
 
   background-color: $text-white-color;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 1px 0 1px rgba(0, 0, 0, 0.14),
