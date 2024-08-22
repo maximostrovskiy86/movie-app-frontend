@@ -1,23 +1,33 @@
 <header class="header bg-header">
-    <div class="container">
-        <div class="header-menu">
-            <a href="./index.html">
-                <span class="logo-text">Movie App</span>
-            </a>
-            <nav class="navigation">
-                <ul class="list-navigation">
-                    <li><a href="">My movies</a></li>
-                    <li><a href="">Films</a></li>
-                    <li><a href="">Serial</a></li>
-                    <li><a href="">Home</a></li>
-                </ul>
-            </nav>
-        </div>
-        <form name="header-form" class='js-search-form' id="search-form">
-            <label for="search-input">
-                <input type="text" placeholder="Search movie" name="searchInput" class="js-search" id="search-input">
-            </label>
-            <button class="js-button-submit button-search" type="submit">Submit</button>
-        </form>
+  <div class="container">
+    <div class="header-menu">
+      <a href="./index.html">
+        <span class="logo-text">Movie App</span>
+      </a>
+      <nav class="navigation">
+        <ul class="list-navigation">
+          <li><a href="">My movies</a></li>
+          <li><a href="">Films</a></li>
+          <li><a href="">Serial</a></li>
+          <li><a href="">Home</a></li>
+        </ul>
+      </nav>
     </div>
+    <form name="header-form" class='js-search-form' id="search-form">
+      <div class="search-container">
+        <label for="search-input">
+          <input type="text" placeholder="Search movie" name="searchInput" class="js-search" id="search-input">
+        </label>
+        <span class="form-icon-container">
+          <svg width="24" height="24" class="icon-search">
+            <use href="./images/sprite.svg#search"></use>
+          </svg>
+          <input class="button-search" type="submit" data-form-submit />
+      </span>
+      </div>
+      <p class="form-text-error visually-hidden is-hidden">
+        Search result not successful. Enter the correct movie name and
+      </p>
+    </form>
+  </div>
 </header>
