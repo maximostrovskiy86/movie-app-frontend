@@ -1,18 +1,18 @@
-import {mediaRef, modalRef, movieRef} from "../const/refs";
-import {IMAGE_BASE_URL} from "../const/base";
-import {fetchMovieInformation} from "../API/movie-api";
+import { mediaRef, modalRef, movieRef } from '../const/refs';
+import { IMAGE_BASE_URL } from '../const/base';
+import { fetchMovieInformation } from '../API/movie-api';
 
 
 const appendMovieModalMarkup = (filmInfo) => {
-    const {poster_path, overview, original_title, vote_average, popularity, genres} = filmInfo;
-    console.log('filmInfo', filmInfo)
+  const { poster_path, overview, original_title, vote_average, popularity, genres } = filmInfo;
+  // console.log('filmInfo', filmInfo)
 
-    const listGenres = genres.map(genre => {
-        console.log('genre', genre);
-        return `<span>${genre.name}</span>`
-    })
+  const listGenres = genres.map(genre => {
+    console.log('genre', genre);
+    return `<span>${genre.name}</span>`;
+  });
 
-    const movieInfo = `<div class="modal-content">
+  const movieInfo = `<div class="modal-content">
     <figure class="movie-image">
         <img src=${IMAGE_BASE_URL}${poster_path} class="modal-picture"  alt=${original_title}/>
         <figcaption class="original-title"><h3 class="modal-title-small-device">${original_title}</h3></figcaption>
@@ -46,20 +46,20 @@ const appendMovieModalMarkup = (filmInfo) => {
             <button class="button button-modal-queue">Add queue</button>
         </div>
     </div>
-</div>`
-    modalRef.innerHTML = movieInfo;
-}
+</div>`;
+  modalRef.innerHTML = movieInfo;
+};
 
 export const handlerMovieInformation = async (event) => {
-    const target = event.target;
-    console.log('complete', target);
+  const target = event.target;
+  console.log('complete', target);
 
-    let li = target.closest('li');
-    if (!li) return;
+  let li = target.closest('li');
+  if (!li) return;
 
-    const movie = await fetchMovieInformation(li.id);
-    appendMovieModalMarkup(movie)
-}
+  const movie = await fetchMovieInformation(li.id);
+  appendMovieModalMarkup(movie);
+};
 
 
 mediaRef.addEventListener('click', handlerMovieInformation);
