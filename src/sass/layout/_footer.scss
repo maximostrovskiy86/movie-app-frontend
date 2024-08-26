@@ -1,0 +1,40 @@
+.footer {
+    padding: 25px 50px;
+    background-color: #F7F7F7;
+    color: #545454;
+    font-size: 14px;
+    font-weight: 500;
+
+    .footer-wrapper {
+	text-align: center;
+	@media screen and (min-width: 768px) {
+	    display: flex;
+	    justify-content: center;
+	    p + p {
+		margin-left: 5px;
+	    }
+	}
+
+	p:first-child {
+	    span {
+		&:first-child {
+		    padding-right: 5px;
+		    border-right: 1px solid #545454;
+		}
+
+		&:last-child {
+		    padding: 0 5px;
+		    border-right: 1px solid #545454;
+		}
+	    }
+	}
+
+	@media screen and (min-width: 768px) {
+	    p:last-child {
+		margin: 0;
+		padding-left: 5px;
+	    }
+	}
+
+    }
+}
