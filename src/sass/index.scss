@@ -7,9 +7,9 @@
 @import "./utils/placeholders";
 @import "./utils/mixin";
 
-@import './components/body';
+@import 'layout/body';
 @import './components/container';
-@import "./components/card-movie";
+@import "layout/card-movie";
 @import './components/modal';
 @import "./components/button";
 //@import './components/modalSecondVariant';

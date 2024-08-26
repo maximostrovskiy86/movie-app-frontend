@@ -1,20 +1,20 @@
 .container {
-    //max-width: 990px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
+  //width: 280px;  // adaptive until 480px
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto; // response variant until 480px
 
-    @media screen and (min-width: 480px) {
-	width: 480px;
-    }
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
 
-    @media screen and (min-width: 768px) {
-	width: 620px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 620px;
+  }
 
-    @media screen and (min-width: 1024px) {
-	width: 880px;
-    }
+  @media screen and (min-width: 1024px) {
+    width: 880px;
+  }
 }
 
 
