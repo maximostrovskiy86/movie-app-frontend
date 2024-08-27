@@ -1,4 +1,3 @@
-import {mediaLInk} from "../const/refs";
 import {fetchGetMoviesTrending} from "../API/movie-api";
 import {createMovieMarkup} from "./cardMovie";
 
