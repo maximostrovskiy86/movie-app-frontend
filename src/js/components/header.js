@@ -1,6 +1,7 @@
 import { formRef, activeNavLink } from '../const/refs';
-import { fetchMoviesSearch } from '../API/movie-api';
+import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
+import {dataModification} from "./media";
 
 
 let selectedLink;
@@ -29,8 +30,12 @@ async function onSearchMovies(event) {
 
   if (!keyWord) return;
 
-  const movieSearch = await fetchMoviesSearch(keyWord);
-  createMovieMarkup(movieSearch);
+  const allGenres = await fetchGetGenres();
+  const dataMovieSearch = await fetchMoviesSearch(keyWord);
+
+  const dataModificationMovies = await dataModification(dataMovieSearch, allGenres);
+
+  createMovieMarkup(dataModificationMovies)
 }
 
 formRef.addEventListener('submit', onSearchMovies);
