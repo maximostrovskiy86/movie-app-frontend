@@ -1,10 +1,11 @@
 import { formRef, activeNavLink } from '../const/refs';
 import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
-import {dataModification} from "./media";
+import {dataModification} from "./dataModificationForMovies";
 
 
 let selectedLink;
+
 const addStyleActiveNavLink = (e) => {
   e.preventDefault();
 
