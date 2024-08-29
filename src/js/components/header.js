@@ -1,4 +1,4 @@
-import { formRef, activeNavLink } from '../const/refs';
+import { formRef, activeNavLink, errorTextForSearchForm } from '../const/refs';
 import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
 import {dataModification} from "./dataModificationForMovies";
@@ -29,10 +29,18 @@ async function onSearchMovies(event) {
   const form = event.target;
   const keyWord = form.elements.searchInput.value;
 
-  if (!keyWord) return;
-
   const allGenres = await fetchGetGenres();
   const dataMovieSearch = await fetchMoviesSearch(keyWord);
+
+  if (!dataMovieSearch.results.length || !form.elements.searchInput.value) {
+    errorTextForSearchForm.classList.remove('is-hidden');
+
+    setTimeout(() => {
+      errorTextForSearchForm.classList.add('is-hidden');
+    }, 5000);
+
+    return;
+  }
 
   const dataModificationMovies = await dataModification(dataMovieSearch, allGenres);
 
@@ -41,5 +49,3 @@ async function onSearchMovies(event) {
 
 formRef.addEventListener('submit', onSearchMovies);
 activeNavLink.addEventListener('click', addStyleActiveNavLink);
-
-

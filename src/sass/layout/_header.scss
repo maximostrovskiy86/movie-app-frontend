@@ -82,8 +82,10 @@
   .form-text-error {
     position: absolute;
     top: 100%;
+    margin-top: 12px;
     font-size: 14px;
-    color: #991100;
+    color: #FF001B;
+    transition: opacity 150ms $timing-function;
   }
 }
 
