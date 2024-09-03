@@ -1,4 +1,4 @@
-<header class="header bg-header">
+<header class="header bg-header-home">
   <div class="container">
     <div class="header-menu">
       <a href="./index.html" class="logo-link">
@@ -9,14 +9,14 @@
       </a>
       <nav class="navigation">
         <ul class="list-navigation">
-          <li><a href="">Home</a></li>
-          <li><a href="">My movies</a></li>
+          <li><a href="" id="home" class="">Home</a></li>
+          <li><a href="" id="myMovies">My movies</a></li>
           <li><a href="">Films</a></li>
           <li><a href="">Serials</a></li>
         </ul>
       </nav>
     </div>
-    <form name="header-form" class='js-search-form' id="search-form">
+    <form name="header-form" class='js-search-form search-form"' id="search-form">
       <div class="search-container">
         <label for="search-input">
           <input type="text" placeholder="Search movie" name="searchInput" class="js-search" id="search-input" required minlength="3">
@@ -32,5 +32,9 @@
         Search result not successful. Enter the correct movie name and
       </p>
     </form>
+    <div class="wrapper-for-library is-display-none">
+      <button class="button header-button-watched">Watched</button>
+      <button class="button header-button-queue">Queue</button>
+    </div>
   </div>
 </header>
