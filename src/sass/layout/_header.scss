@@ -141,6 +141,7 @@
 
 .wrapper-for-library {
   display: flex;
+  justify-content: center;
 
   .header-button-watched, .header-button-queue {
     text-transform: uppercase;

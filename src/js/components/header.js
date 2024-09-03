@@ -62,8 +62,6 @@ const onChangePageToHome = () => {
     headerRef.classList.add('bg-header-home');
     wrapBtnLibRef.classList.add('is-display-none');
     searchMovie.classList.remove('is-display-none');
-
-
 }
 
 const onChangePageToMovies = () => {
@@ -71,7 +69,20 @@ const onChangePageToMovies = () => {
     headerRef.classList.add('bg-header-library');
     wrapBtnLibRef.classList.remove('is-display-none');
     searchMovie.classList.add('is-display-none');
-    // queueBtn.style.backgroundColor = `#FF6B01`;
+}
+
+const onOpenWatchedPage = () => {
+    watchedBtn.style.backgroundColor = `#FF6B01`;
+    watchedBtn.style.border = 'none';
+    queueBtn.style.border = '1px solid #ffffff';
+    queueBtn.style.backgroundColor = 'transparent';
+}
+
+const onOpenQueuePage = () => {
+    queueBtn.style.backgroundColor = `#FF6B01`;
+    queueBtn.style.border = 'none';
+    watchedBtn.style.border = '1px solid #ffffff';
+    watchedBtn.style.backgroundColor =  'transparent';
 }
 
 
@@ -79,10 +90,6 @@ formRef.addEventListener('submit', onSearchMovies);
 activeNavLink.addEventListener('click', addStyleActiveNavLink);
 homeNavLinkRef.addEventListener('click', onChangePageToHome);
 movieNavLinkRef.addEventListener('click', onChangePageToMovies);
-queueBtn.addEventListener('click', () => {
-    queueBtn.style.backgroundColor = `#FF6B01`;
-    watchedBtn.style = `
-    backgroundColor: '#ffffff',
-`;
-})
+queueBtn.addEventListener('click', onOpenQueuePage);
+watchedBtn.addEventListener('click', onOpenWatchedPage);
 
