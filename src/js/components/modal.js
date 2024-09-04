@@ -1,5 +1,6 @@
-import {mediaRef, closeModal, backdrop} from "../const/refs";
+import {mediaRef, closeModal, backdrop, saveWatchedModalBtnRef} from "../const/refs";
 import {handlerMovieInformation} from "./movieInfoModalWindow";
+import localStorageFn from "./localStorage";
 
 // const refs = {
 //     closeModal: document.querySelector('[data-action="close-modal"]'),
@@ -12,6 +13,7 @@ const onOpenModal = () => {
     document.body.classList.add('show-modal');
 
     handlerMovieInformation();
+
 }
 
 const onCloseModal = () => {
@@ -31,9 +33,10 @@ const onEscKeyPress = (event) => {
     }
 }
 
+
 mediaRef.addEventListener('click', onOpenModal);
 closeModal.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdrop);
-// refs.closeModal.addEventListener('click', onCloseModal);
-// refs.backdrop.addEventListener('click', onBackdrop);
+console.log('saveWatchedModalBtn', saveWatchedModalBtnRef)
+// saveWatchedModalBtnRef.addEventListener('click', saveWatchedMovies);
 
