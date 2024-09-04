@@ -9,6 +9,10 @@ body.show-modal .modal {
   transform: scale(1);
 }
 
+body.show-modal {
+  overflow: hidden;
+}
+
 .backdrop {
   @extend %backdrop;
   pointer-events: none;
