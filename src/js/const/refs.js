@@ -13,4 +13,4 @@ export const wrapBtnLibRef = document.querySelector('.wrapper-for-library');
 export const searchMovie = document.querySelector('.search-container');
 export const watchedBtn = document.querySelector('.header-button-watched');
 export const queueBtn = document.querySelector('.header-button-queue');
-export const saveWatchedModalBtnRef = document.querySelector('.button-modal-watch');
+// export const saveWatchedModalBtnRef = document.querySelector('.button-modal-watch');
