@@ -1,6 +1,6 @@
-import { fetchMovieInformationForModal } from '../API/movie-api';
 import localStorageFn from './localStorage';
-
+import { fetchGetGenres, fetchMovieInformationForModal } from '../API/movie-api';
+import { dataModification } from './dataModificationForMovies';
 
 export const saveWatchedMovies = async (idFilm, watchedBtnRefs) => {
   const isExistFilm = await fetchMovieInformationForModal(idFilm);
@@ -27,4 +27,14 @@ export const saveWatchedMovies = async (idFilm, watchedBtnRefs) => {
 
 export const changeTextWatchedButton = (isFindMovie, watchedBtnRefs) => {
   watchedBtnRefs.textContent = isFindMovie ? 'Remove from watched' : 'Add to Watch';
+};
+
+export const onMarkupWatchedPage = async () => {
+  const ObjMovies = {};
+
+  const allGenres = await fetchGetGenres();
+  ObjMovies.results = localStorageFn.load('dataWatched');
+  // ObjMovies.results = localWatchedArr;
+
+  return await dataModification(ObjMovies, allGenres);
 };
