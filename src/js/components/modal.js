@@ -1,42 +1,51 @@
-import {mediaRef, closeModal, backdrop, saveWatchedModalBtnRef} from "../const/refs";
-import {handlerMovieInformation} from "./movieInfoModalWindow";
-import localStorageFn from "./localStorage";
+import { mediaRef, closeModal, backdrop } from '../const/refs';
+import localStorageFn from './localStorage';
+import { appendMovieModalMarkup } from './movieModalTemplate';
+import { fetchMovieInformationForModal } from '../API/movie-api';
+import { saveWatchedMovies, changeTextWatchedButton } from './watched';
 
-// const refs = {
-//     closeModal: document.querySelector('[data-action="close-modal"]'),
-//     backdrop: document.querySelector('[data-backdrop]'),
-// }
+async function onOpenModal(event) {
+  event.preventDefault();
 
+  const target = event.target;
+  let li = target.closest('li');
+  if (!li) return;
 
-const onOpenModal = () => {
-    window.addEventListener('keydown', onEscKeyPress);
-    document.body.classList.add('show-modal');
+  const dataMovie = await fetchMovieInformationForModal(li.id);
 
-    handlerMovieInformation();
+  window.addEventListener('keydown', onEscKeyPress);
+  appendMovieModalMarkup(dataMovie);
+  document.body.classList.add('show-modal');
 
+  const watchedBtnRefs = document.querySelector('[data-modal-watch]');
+  const queueBtnRefs = document.querySelector('[data-modal-queue]');
+
+  const localWatched = localStorageFn.load('dataWatched');
+  const isFindWatched = localWatched.some(item => item.id === Number(li.id));
+
+  changeTextWatchedButton(isFindWatched, watchedBtnRefs);
+
+  watchedBtnRefs.addEventListener('click', () => saveWatchedMovies(li.id, watchedBtnRefs));
 }
 
 const onCloseModal = () => {
-    document.removeEventListener('keydown', onEscKeyPress);
-    document.body.classList.remove('show-modal');
-}
+  document.removeEventListener('keydown', onEscKeyPress);
+  document.body.classList.remove('show-modal');
+};
 
 const onBackdrop = (event) => {
-    if (event.currentTarget === event.target) {
-        onCloseModal();
-    }
-}
+  if (event.currentTarget === event.target) {
+    onCloseModal();
+  }
+};
 
 const onEscKeyPress = (event) => {
-    if (event.code === 'Escape') {
-        onCloseModal();
-    }
-}
-
+  if (event.code === 'Escape') {
+    onCloseModal();
+  }
+};
 
 mediaRef.addEventListener('click', onOpenModal);
 closeModal.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdrop);
-console.log('saveWatchedModalBtn', saveWatchedModalBtnRef)
-// saveWatchedModalBtnRef.addEventListener('click', saveWatchedMovies);
 
