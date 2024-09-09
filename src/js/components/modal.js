@@ -2,7 +2,7 @@ import { mediaRef, closeModal, backdrop } from '../const/refs';
 import localStorageFn from './localStorage';
 import { appendMovieModalMarkup } from './movieModalTemplate';
 import { fetchMovieInformationForModal } from '../API/movie-api';
-import { saveWatchedMovies, changeTextWatchedButton } from './watched';
+import { saveWatchedMovies, changeTextWatchedButton, isHasFilmLocalWatched } from './watched';
 
 async function onOpenModal(event) {
   event.preventDefault();
@@ -20,12 +20,11 @@ async function onOpenModal(event) {
   const watchedBtnRefs = document.querySelector('[data-modal-watch]');
   const queueBtnRefs = document.querySelector('[data-modal-queue]');
 
-  const localWatched = localStorageFn.load('dataWatched');
-  const isFindWatched = localWatched.some(item => item.id === Number(li.id));
+  const isFindWatched = isHasFilmLocalWatched(dataMovie);
 
   changeTextWatchedButton(isFindWatched, watchedBtnRefs);
 
-  watchedBtnRefs.addEventListener('click', () => saveWatchedMovies(li.id, watchedBtnRefs));
+  watchedBtnRefs.addEventListener('click', () => saveWatchedMovies(dataMovie, watchedBtnRefs));
 }
 
 const onCloseModal = () => {
@@ -33,13 +32,13 @@ const onCloseModal = () => {
   document.body.classList.remove('show-modal');
 };
 
-const onBackdrop = (event) => {
+const onBackdrop = event => {
   if (event.currentTarget === event.target) {
     onCloseModal();
   }
 };
 
-const onEscKeyPress = (event) => {
+const onEscKeyPress = event => {
   if (event.code === 'Escape') {
     onCloseModal();
   }
@@ -48,4 +47,3 @@ const onEscKeyPress = (event) => {
 mediaRef.addEventListener('click', onOpenModal);
 closeModal.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdrop);
-
