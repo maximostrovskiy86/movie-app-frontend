@@ -1,26 +1,36 @@
 import localStorageFn from './localStorage';
-import { fetchGetGenres, fetchMovieInformationForModal } from '../API/movie-api';
+import { fetchGetGenres } from '../API/movie-api';
 import { dataModification } from './dataModificationForMovies';
 
-export const saveWatchedMovies = async (idFilm, watchedBtnRefs) => {
-  const isExistFilm = await fetchMovieInformationForModal(idFilm);
+export const isHasFilmLocalWatched = film => {
+  const localWatched = localStorageFn.load('dataWatched');
+
+  if (localWatched) {
+    return localWatched.some(movie => movie.id === film.id);
+  } else {
+    return false;
+  }
+};
+
+export const saveWatchedMovies = (film, watchedBtnRefs) => {
   const localWatched = localStorageFn.load('dataWatched');
 
   if (!localWatched) {
-    const arrayWatched = [isExistFilm];
+    const arrayWatched = [film];
     localStorageFn.save('dataWatched', arrayWatched);
+    changeTextWatchedButton(true, watchedBtnRefs);
     return;
   }
 
-  const isFindMovie = localWatched.some(film => film.id === Number(idFilm));
+  const isFindMovie = isHasFilmLocalWatched(film);
   changeTextWatchedButton(!isFindMovie, watchedBtnRefs);
 
-
   if (isFindMovie) {
-    const newLocalWatched = localWatched.filter(item => item.id !== isExistFilm.id);
-    localStorageFn.save('dataWatched', newLocalWatched);
+    const removeFilmFromLocalWatched = localWatched.filter(item => item.id !== film.id);
+    localStorageFn.save('dataWatched', removeFilmFromLocalWatched);
+    // location.reload();
   } else {
-    localWatched.push(isExistFilm);
+    localWatched.push(film);
     localStorageFn.save('dataWatched', localWatched);
   }
 };

@@ -15,9 +15,8 @@ import { createMovieMarkup } from './cardMovie';
 import { dataModification } from './dataModificationForMovies';
 import { onMarkupWatchedPage } from './watched';
 
-
 let selectedLink;
-const addStyleActiveNavLink = (e) => {
+const addStyleActiveNavLink = e => {
   e.preventDefault();
 
   const target = e.target;
@@ -26,8 +25,9 @@ const addStyleActiveNavLink = (e) => {
   highBorderLink(target);
 };
 
-const highBorderLink = (li) => {
-  if (selectedLink) { // убрать существующую подсветку, если есть
+const highBorderLink = li => {
+  if (selectedLink) {
+    // убрать существующую подсветку, если есть
     selectedLink.classList.remove('is-border');
   }
   selectedLink = li;
@@ -71,11 +71,7 @@ const onChangePageToMovies = () => {
   searchMovie.classList.add('is-display-none');
 };
 
-
-console.log('location', location);
-
-
-const onOpenWatchedPage = async (e) => {
+const onOpenWatchedPage = async e => {
   watchedBtn.style.backgroundColor = `#FF6B01`;
   watchedBtn.style.border = 'none';
   queueBtn.style.border = '1px solid #ffffff';
@@ -102,11 +98,9 @@ const onOpenQueuePage = () => {
   watchedBtn.style.backgroundColor = 'transparent';
 };
 
-
 formRef.addEventListener('submit', onSearchMovies);
 activeNavLink.addEventListener('click', addStyleActiveNavLink);
 homeNavLinkRef.addEventListener('click', onChangePageToHome);
 queueBtn.addEventListener('click', onOpenQueuePage);
 watchedBtn.addEventListener('click', onOpenWatchedPage);
 moviePageRef.addEventListener('click', onOpenWatchedPage);
-
