@@ -14,6 +14,7 @@ import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
 import { dataModification } from './dataModificationForMovies';
 import { onMarkupWatchedPage } from './watched';
+import { onMarkupQueuePage } from './queue';
 
 let selectedLink;
 const addStyleActiveNavLink = e => {
@@ -91,11 +92,14 @@ const onOpenWatchedPage = async e => {
   createMovieMarkup(dataMovie);
 };
 
-const onOpenQueuePage = () => {
+const onOpenQueuePage = async () => {
   queueBtn.style.backgroundColor = `#FF6B01`;
   queueBtn.style.border = 'none';
   watchedBtn.style.border = '1px solid #ffffff';
   watchedBtn.style.backgroundColor = 'transparent';
+
+  const dataMovie = await onMarkupQueuePage();
+  createMovieMarkup(dataMovie);
 };
 
 formRef.addEventListener('submit', onSearchMovies);

@@ -1,4 +1,6 @@
 import localStorageFn from './localStorage';
+import { fetchGetGenres } from '../API/movie-api';
+import { dataModification } from './dataModificationForMovies';
 
 export const isHasFilmLocalQueue = film => {
   const localQueue = localStorageFn.load('dataQueue');
@@ -34,4 +36,13 @@ export const saveQueueMovies = (film, queueBtnRefs) => {
 
 export const changeTextQueueButton = (isFind, queueBtnRefs) => {
   queueBtnRefs.textContent = isFind ? 'Remove from queue' : 'Add queue';
+};
+
+export const onMarkupQueuePage = async () => {
+  const ObjMovies = {};
+
+  const allGenres = await fetchGetGenres();
+  ObjMovies.results = localStorageFn.load('dataQueue');
+
+  return await dataModification(ObjMovies, allGenres);
 };
