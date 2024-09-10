@@ -6,7 +6,6 @@ export const isHasFilmLocalWatched = film => {
   const localWatched = localStorageFn.load('dataWatched');
 
   if (localWatched) {
-    const localWatched = localStorageFn.load('dataWatched');
     return localWatched.some(movie => movie.id === film.id);
   } else {
     return false;
@@ -15,14 +14,21 @@ export const isHasFilmLocalWatched = film => {
 
 export const saveWatchedMovies = (film, watchedBtnRefs) => {
   const localWatched = localStorageFn.load('dataWatched');
-  const isFindMovie = isHasFilmLocalWatched(film);
 
+  if (!localWatched) {
+    const arrayWatched = [film];
+    localStorageFn.save('dataWatched', arrayWatched);
+    changeTextWatchedButton(true, watchedBtnRefs);
+    return;
+  }
+
+  const isFindMovie = isHasFilmLocalWatched(film);
   changeTextWatchedButton(!isFindMovie, watchedBtnRefs);
 
   if (isFindMovie) {
     const removeFilmFromLocalWatched = localWatched.filter(item => item.id !== film.id);
     localStorageFn.save('dataWatched', removeFilmFromLocalWatched);
-    window.reload();
+    // location.reload();
   } else {
     localWatched.push(film);
     localStorageFn.save('dataWatched', localWatched);

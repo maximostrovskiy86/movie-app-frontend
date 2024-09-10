@@ -3,6 +3,7 @@ import localStorageFn from './localStorage';
 import { appendMovieModalMarkup } from './movieModalTemplate';
 import { fetchMovieInformationForModal } from '../API/movie-api';
 import { saveWatchedMovies, changeTextWatchedButton, isHasFilmLocalWatched } from './watched';
+import { saveQueueMovies, changeTextQueueButton, isHasFilmLocalQueue } from './queue';
 
 async function onOpenModal(event) {
   event.preventDefault();
@@ -21,10 +22,14 @@ async function onOpenModal(event) {
   const queueBtnRefs = document.querySelector('[data-modal-queue]');
 
   const isFindWatched = isHasFilmLocalWatched(dataMovie);
-
   changeTextWatchedButton(isFindWatched, watchedBtnRefs);
 
+  const isFindQueue = isHasFilmLocalQueue(dataMovie);
+  console.log('isFindQueue', isFindQueue);
+  changeTextQueueButton(isFindQueue, queueBtnRefs);
+
   watchedBtnRefs.addEventListener('click', () => saveWatchedMovies(dataMovie, watchedBtnRefs));
+  queueBtnRefs.addEventListener('click', () => saveQueueMovies(dataMovie, queueBtnRefs));
 }
 
 const onCloseModal = () => {
