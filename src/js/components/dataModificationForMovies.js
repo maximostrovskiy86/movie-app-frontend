@@ -2,6 +2,8 @@ export const dataModification = (movies, allGenres) => {
   const { results } = movies;
   const { genres } = allGenres;
 
+  if (!results) return [];
+
   const prepareDataGenres = results.map(item => {
     const genreId = item.genre_ids || item.genres.map(genre => genre.id);
 

@@ -87,14 +87,14 @@ const onOpenWatchedPage = async () => {
   queueBtn.style.border = '1px solid #ffffff';
   queueBtn.style.backgroundColor = 'transparent';
 
-  let url = new URL('watched.html', 'http://localhost:1234');
-  moviePageRef.setAttribute('href', String(url));
-
-  if (window.location.href !== 'http://localhost:1234/watched.html') {
-    window.location.assign(url);
-    // window.location.assign('http://localhost:1234/watched.html');
-    // window.location.href = 'http://localhost:1234/watched.html';
-  }
+  // let url = new URL('watched.html', 'http://localhost:1234');
+  // moviePageRef.setAttribute('href', String(url));
+  //
+  // if (window.location.href !== 'http://localhost:1234/watched.html') {
+  //   window.location.assign(url);
+  // window.location.assign('http://localhost:1234/watched.html');
+  // window.location.href = 'http://localhost:1234/watched.html';
+  // }
 
   const dataMovie = await onMarkupWatchedPage();
   createMovieMarkup(dataMovie);
