@@ -1,5 +1,4 @@
 import { mediaRef, closeModal, backdrop } from '../const/refs';
-import localStorageFn from './localStorage';
 import { appendMovieModalMarkup } from './movieModalTemplate';
 import { fetchMovieInformationForModal } from '../API/movie-api';
 import { saveWatchedMovies, changeTextWatchedButton, isHasFilmLocalWatched } from './watched';
@@ -25,7 +24,6 @@ async function onOpenModal(event) {
   changeTextWatchedButton(isFindWatched, watchedBtnRefs);
 
   const isFindQueue = isHasFilmLocalQueue(dataMovie);
-  console.log('isFindQueue', isFindQueue);
   changeTextQueueButton(isFindQueue, queueBtnRefs);
 
   watchedBtnRefs.addEventListener('click', () => saveWatchedMovies(dataMovie, watchedBtnRefs));

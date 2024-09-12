@@ -8,13 +8,18 @@ import {
   searchMovie,
   watchedBtn,
   queueBtn,
-  moviePageRef,
+  myMoviePageRef,
+  listWatchedRef,
 } from '../const/refs';
 import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
 import { dataModification } from './dataModificationForMovies';
 import { onMarkupWatchedPage } from './watched';
 import { onMarkupQueuePage } from './queue';
+
+console.log('WINDOW', window);
+console.log('Document', Document);
+console.log('location', location);
 
 let selectedLink;
 const addStyleActiveNavLink = e => {
@@ -23,7 +28,9 @@ const addStyleActiveNavLink = e => {
   const target = e.target;
   if (target.tagName !== 'A') return;
 
-  highBorderLink(target);
+  if (window.innerWidth > 767) {
+    highBorderLink(target);
+  }
 };
 
 const highBorderLink = li => {
@@ -65,19 +72,20 @@ const onChangePageToHome = () => {
   searchMovie.classList.remove('is-display-none');
 };
 
-const onChangePageToMovies = () => {
+const onChangePageToMovies = async () => {
   headerRef.classList.remove('bg-header-home');
   headerRef.classList.add('bg-header-library');
   wrapBtnLibRef.classList.remove('is-display-none');
   searchMovie.classList.add('is-display-none');
+
+  await onOpenWatchedPage();
 };
 
-const onOpenWatchedPage = async e => {
+const onOpenWatchedPage = async () => {
   watchedBtn.style.backgroundColor = `#FF6B01`;
   watchedBtn.style.border = 'none';
   queueBtn.style.border = '1px solid #ffffff';
   queueBtn.style.backgroundColor = 'transparent';
-  onChangePageToMovies();
 
   // let url = new URL('watched.html', 'http://localhost:1234');
   // moviePageRef.setAttribute('href', String(url));
@@ -107,4 +115,4 @@ activeNavLink.addEventListener('click', addStyleActiveNavLink);
 homeNavLinkRef.addEventListener('click', onChangePageToHome);
 queueBtn.addEventListener('click', onOpenQueuePage);
 watchedBtn.addEventListener('click', onOpenWatchedPage);
-moviePageRef.addEventListener('click', onOpenWatchedPage);
+myMoviePageRef.addEventListener('click', onChangePageToMovies);

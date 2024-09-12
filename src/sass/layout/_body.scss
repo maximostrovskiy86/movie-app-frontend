@@ -1,5 +1,5 @@
 body {
-    font: 600 12px/1.7 'Roboto ',
+    font: 600 14px/1.7 'Roboto ',
     Sans-Serif;
     color: $font-color;
     background-color: #ffffff;
@@ -11,6 +11,12 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 a {

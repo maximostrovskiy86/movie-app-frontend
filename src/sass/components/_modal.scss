@@ -5,31 +5,23 @@
     opacity: 0;
     transition: visibility 200ms ease-in-out, opacity 200ms ease-in-out;
     overflow-y: scroll;
-
-    @media screen and (min-width: 768px) {
-	//@include centeredFlex(flex, center, center);
-    }
 }
 
 body.show-modal .backdrop {
-    @include centeredFlex(flex, center, center);
     visibility: visible;
     opacity: 1;
     pointer-events: initial;
-}
-
-//body.show-modal .modal {
-//    transform: scale(1);
-//}
-
-body.show-modal {
-    overflow: hidden;
 }
 
 .modal {
     @extend %modal;
     margin: 25px;
     padding: 50px 30px;
+    transition: opacity 250ms $timing-function, transform 250ms $timing-function;
+    transform: translate(-50%, -150%) scale(0.9);
+    @media screen and (max-width: 767px) {
+	transform: translate(0, -150%);
+    }
 
     .button-base.modal-close-btn {
 	position: absolute;
@@ -54,11 +46,26 @@ body.show-modal {
     }
 
     @media screen and (min-width: 768px) {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: auto;
 	min-width: 618px;
     }
 
     @media screen and (min-width: 1024px) {
 	max-width: 882px;
+    }
+}
+
+body.show-modal .modal {
+    overflow: hidden;
+    @media screen and (max-width: 767px) {
+	transform: translate(0, 0) scale(1);
+    }
+
+    @media screen and (min-width: 768px) {
+	transform: translate(-50%, -50%) scale(1);
     }
 }
 
@@ -76,7 +83,6 @@ body.show-modal {
 }
 
 .movie-image {
-    //@include centeredFlex(flex, center, center);
     margin-bottom: 15px;
 
     .modal-title-small-device {
