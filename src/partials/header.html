@@ -7,14 +7,21 @@
         </svg>
         <span class="logo-text">Movies app</span>
       </a>
-      <nav class="navigation">
+      <nav class="navigation" id="nav-container" data-menu>
         <ul class="list-navigation">
           <li><a href="./index.html" id="home">Home</a></li>
-          <li><a href="" id="myMovies">My movies</a></li>
-          <li><a href="">Films</a></li>
-          <li><a href="">Serials</a></li>
+          <li><a href="javascript:void(0)" id="myMovies">My movies</a></li>
+          <li><a href="javascript:void(0)">Films</a></li>
+          <li><a href="javascript:void(0)">Serials</a></li>
         </ul>
       </nav>
+      <button type="button" class="menu-button" aria-expanded="false" aria-controls="nav-container"
+              data-menu-button>
+        <svg width="25" height="25" aria-label="mobile-menu-toggle">
+          <use class="icon-menu" href="./images/sprite.svg#icon-mobile-menu"></use>
+          <use class="icon-cross" href="./images/sprite.svg#icon-cross"></use>
+        </svg>
+      </button>
     </div>
     <form name="header-form" class='js-search-form search-form"' id="search-form">
       <div class="search-container">

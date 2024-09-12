@@ -1,0 +1,60 @@
+.navigation {
+    padding: 20px;
+
+    &.is-open {
+	display: block;
+    }
+
+    @media screen and (max-width: 767px) {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    @media screen and (min-width: 767px) {
+	display: block;
+	position: static;
+	width: initial;
+	height: initial;
+	//background-color: transparent;
+    }
+}
+
+.menu-button {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    fill: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    .icon-cross {
+	display: none;
+    }
+
+    &.is-open .icon-cross { /* scss version */
+	display: block;
+    }
+
+    &.is-open .icon-menu { /* scss version */
+	display: none;
+
+    }
+
+    @media screen and (min-width: 767px) {
+	display: none;
+    }
+}
+
+//.menu-button.is-open .icon-cross {  /* css version */
+//    display: block;
+//}
+
+//.menu-button.is-open .icon-menu {  /* css version */
+//    display: none;
+//}

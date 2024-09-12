@@ -12,5 +12,5 @@ export const wrapBtnLibRef = document.querySelector('.wrapper-for-library');
 export const searchMovie = document.querySelector('.search-container');
 export const watchedBtn = document.querySelector('.header-button-watched');
 export const queueBtn = document.querySelector('.header-button-queue');
-export const moviePageRef = document.querySelector('#myMovies');
+export const myMoviePageRef = document.querySelector('#myMovies');
 export const listWatchedRef = document.querySelector('.list-watched');
