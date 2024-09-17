@@ -70,6 +70,8 @@ const onChangePageToHome = () => {
   headerRef.classList.add('bg-header-home');
   wrapBtnLibRef.classList.add('is-display-none');
   searchMovie.classList.remove('is-display-none');
+
+  window.location.href = 'http://localhost:1234/index.html';
 };
 
 const onChangePageToMovies = async () => {

@@ -14,3 +14,4 @@ export const watchedBtn = document.querySelector('.header-button-watched');
 export const queueBtn = document.querySelector('.header-button-queue');
 export const myMoviePageRef = document.querySelector('#myMovies');
 export const listWatchedRef = document.querySelector('.list-watched');
+export const loadMoreMoviesButton = document.querySelector('.load-more-movie');
