@@ -17,10 +17,6 @@ import { dataModification } from './dataModificationForMovies';
 import { onMarkupWatchedPage } from './watched';
 import { onMarkupQueuePage } from './queue';
 
-console.log('WINDOW', window);
-console.log('Document', Document);
-console.log('location', location);
-
 let selectedLink;
 const addStyleActiveNavLink = e => {
   e.preventDefault();
