@@ -28,7 +28,6 @@ export const saveWatchedMovies = (film, watchedBtnRefs) => {
   if (isFindMovie) {
     const removeFilmFromLocalWatched = localWatched.filter(item => item.id !== film.id);
     localStorageFn.save('dataWatched', removeFilmFromLocalWatched);
-    // location.reload();
   } else {
     localWatched.push(film);
     localStorageFn.save('dataWatched', localWatched);

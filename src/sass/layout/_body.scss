@@ -26,3 +26,17 @@ body {
 a {
     color: #ffffff;
 }
+
+.js-load-more.is-hidden {
+    display: none;
+}
+
+.load-more-movie-btn {
+    display: block;
+    min-width: 145px;
+    margin: 0 auto;
+    background-color: darken($accent-color, 5%);
+    color: #ffffff;
+    cursor: pointer;
+
+}
