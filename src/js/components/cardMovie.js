@@ -2,6 +2,7 @@ import { mediaRef } from '../const/refs';
 import { IMAGE_BASE_URL } from '../const/base';
 
 export const createMovieMarkup = movies => {
+  console.log('MOVIE', movies);
   const moviesCollection = movies
     .map(movie => {
       return `<li class="movie-item js-movie-item" id=${movie.id}>

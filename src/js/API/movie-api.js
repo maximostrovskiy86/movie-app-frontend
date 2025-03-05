@@ -57,3 +57,18 @@ export const fetchGetGenres = async () => {
   const response = await fetch(url, options);
   return await response.json();
 };
+
+export const fetchGetTrendingSeries = () => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MWMwOTAyNWI0YTUwMDMwN2FlMjZjODkzZjM5YzMzNyIsIm5iZiI6MTcyNjU2MTMxMC44NjQ4MjksInN1YiI6IjYzNjNmMTBlMDkxZTYyMDA3YTFhZWE4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.v73o8BoE0Ao7ZTcKp5slAJH4LxfwTotniXGy1OlRiqo',
+    },
+  };
+
+  return fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options).then(
+    response => response.json(),
+  );
+};

@@ -10,8 +10,9 @@ import {
   queueBtn,
   myMoviePageRef,
   listWatchedRef,
+  seriesLinkRef,
 } from '../const/refs';
-import { fetchMoviesSearch, fetchGetGenres } from '../API/movie-api';
+import { fetchMoviesSearch, fetchGetGenres, fetchGetTrendingSeries } from '../API/movie-api';
 import { createMovieMarkup } from './cardMovie';
 import { dataModification } from './dataModificationForMovies';
 import { onMarkupWatchedPage } from './watched';
@@ -108,9 +109,18 @@ const onOpenQueuePage = async () => {
   createMovieMarkup(dataMovie);
 };
 
+const onLoadSeries = () => {
+  fetchGetTrendingSeries()
+    .then(result => {
+      return createMovieMarkup(result.results);
+    })
+    .catch(err => console.log(err));
+};
+
 formRef.addEventListener('submit', onSearchMovies);
 activeNavLink.addEventListener('click', addStyleActiveNavLink);
 homeNavLinkRef.addEventListener('click', onChangePageToHome);
 queueBtn.addEventListener('click', onOpenQueuePage);
 watchedBtn.addEventListener('click', onOpenWatchedPage);
 myMoviePageRef.addEventListener('click', onChangePageToMovies);
+seriesLinkRef.addEventListener('click', onLoadSeries);
